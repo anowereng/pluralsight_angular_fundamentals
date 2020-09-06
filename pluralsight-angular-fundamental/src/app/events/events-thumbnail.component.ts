@@ -14,7 +14,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     
   </div>
     <div class="card-footer">
-        <a href="#" >Back To</a>
+        <a href="#" (click)="clickBackToList()">Back To</a>
     </div>
 </div>`
 })
@@ -25,5 +25,9 @@ export class EventsThumnailComponent {
     handleClickEvent() {
         this.eventClick.emit('foo');
     }   
+    public clickBackToList() {
+        console.log('back to list click !!');
+    }
+    welcomemessage: string="Hello anwoer"
     
 }

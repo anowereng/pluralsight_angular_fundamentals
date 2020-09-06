@@ -1,3 +1,5 @@
 
 <h2>Upcomeing Angular Events</h2>
-<event-thumbnail [event]="event1" (eventClick)="handleEventClick($event)"></event-thumbnail>
+<event-thumbnail [event]="event1" #thumbnail (eventClick)="handleEventClick($event)"></event-thumbnail>
+{{thumbnail.welcomemessage}}
+<button class="btn btn-primary" (click)="thumbnail.clickBackToList()">Log me some foo</button>
