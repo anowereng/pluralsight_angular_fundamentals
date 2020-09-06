@@ -11,4 +11,7 @@ export class EventsListComponent {
     date: '01-04-1990',
     desctiption:'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
   }
+  handleEventClick(data) {
+    console.log(data);
+  }
 }
