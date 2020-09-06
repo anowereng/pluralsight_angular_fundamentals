@@ -5,9 +5,10 @@ import { Component } from '@angular/core';
   templateUrl: '../events/events-list.component.html'
 })
 export class EventsListComponent {
-  event = {
+  event1 = {
     id: 123,
     name: 'First venet',
-    date: '01-04-1990'
+    date: '01-04-1990',
+    desctiption:'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
   }
 }
