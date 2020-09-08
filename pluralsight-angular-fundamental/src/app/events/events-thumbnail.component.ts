@@ -8,8 +8,18 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
         Featured
     </div>
   <div class="card-body">
-    <h5 class="card-title">{{event.name}}</h5>
-    <p class="card-text">{{event.desctiption}} </p>
+    <h5 class="card-title">id: {{event?.id}}</h5>
+    <p class="card-text">date : {{event.date}} </p>
+
+      <div [ngSwitch]="event?.time">
+        <div *ngSwitchCase="'8:00 AM'">Early Start</div>
+        <div *ngSwitchCase="'12:00 AM'">Late Start</div>
+        <div *ngSwitchDefault>Normal Start</div>
+    </div>
+
+    <p class="card-text">Description: {{event?.desctiption}} </div>
+    <p class="card-text"[hidden] = "!event?.location">Location :  {{event?.location?.locaddress}} </p>
+    <p *ngIf="!event?.location.address" class="card-text">{{event?.location?.address}}</p>
     <a href="#" class="btn btn-primary" (click)="handleClickEvent()">Go somewhere</a>
     
   </div>
@@ -17,6 +27,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
         <a href="#" (click)="clickBackToList()">Back To</a>
     </div>
 </div>`
+    
 })
 export class EventsThumnailComponent {
     @Input() event: any;
