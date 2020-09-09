@@ -11,14 +11,17 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     <h5 class="card-title">id: {{event?.id}}</h5>
     <p class="card-text">date : {{event.date}} </p>
 
-      <div [ngSwitch]="event?.time" [class.green]="event?.time==='8:00 AM'">
+      <div [ngSwitch]="event?.time" [class.green]="event?.time==='8:00 AM'"
+      [ngStyle]="{'color':event?.time==='8:00 AM'? '#003300':'#bbb',
+       'font-weight':event?.time==='8:00 AM'?'bold':'normal'}"
+      >
         <div *ngSwitchCase="'8:00 AM'">Early Start</div>
         <div *ngSwitchCase="'12:00 AM'">Late Start</div>
         <div *ngSwitchDefault>Normal Start</div>
     </div>
 
     <p class="card-text">Description: {{event?.desctiption}} </div>
-    <p class="card-text"[hidden] = "!event?.location">Location :  {{event?.location?.locaddress}} </p>
+    <p class="card-text"[hidden] = "!event?.location"  [ngStyle]="GetStartTimeClass()">Location :  {{event?.location?.locaddress}} </p>
     <p *ngIf="!event?.location.address" class="card-text">{{event?.location?.address}}</p>
     <a href="#" class="btn btn-primary" (click)="handleClickEvent()">Go somewhere</a>
     
@@ -44,4 +47,9 @@ export class EventsThumnailComponent {
     }
     welcomemessage: string="Hello anwoer"
     
+  GetStartTimeClass():any {
+    if (this.event && this.event?.location?.locaddress === 'Dhaka')
+      return { color:'#03300', 'font-weight':'bold'}
+    return {}
+  }
 }
