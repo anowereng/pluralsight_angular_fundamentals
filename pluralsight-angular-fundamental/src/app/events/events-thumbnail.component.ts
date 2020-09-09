@@ -11,7 +11,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     <h5 class="card-title">id: {{event?.id}}</h5>
     <p class="card-text">date : {{event.date}} </p>
 
-      <div [ngSwitch]="event?.time">
+      <div [ngSwitch]="event?.time" [class.green]="event?.time==='8:00 AM'">
         <div *ngSwitchCase="'8:00 AM'">Early Start</div>
         <div *ngSwitchCase="'12:00 AM'">Late Start</div>
         <div *ngSwitchDefault>Normal Start</div>
@@ -26,7 +26,10 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     <div class="card-footer">
         <a href="#" (click)="clickBackToList()">Back To</a>
     </div>
-</div>`
+</div>`,
+  styles: [`
+      .green{color: green! important;}
+    `]
     
 })
 export class EventsThumnailComponent {
