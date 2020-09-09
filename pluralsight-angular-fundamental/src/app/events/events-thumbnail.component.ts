@@ -22,7 +22,6 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 
     <p class="card-text">Description: {{event?.desctiption}} </div>
     <p class="card-text"[hidden] = "!event?.location"  [ngStyle]="GetStartTimeClass()">Location :  {{event?.location?.locaddress}} </p>
-    <p *ngIf="!event?.location.address" class="card-text">{{event?.location?.address}}</p>
     <a href="#" class="btn btn-primary" (click)="handleClickEvent()">Go somewhere</a>
     
   </div>

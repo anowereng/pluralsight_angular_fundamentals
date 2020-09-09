@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { EventService } from '../shared/event.service';
 
 @Component({
   selector: 'event-list',
@@ -11,61 +12,14 @@ import { Component } from '@angular/core';
     }
   `]
 })
-export class EventsListComponent {
-  events: any = [
-    {
-    id: 123,
-    name: 'First venet',
-      date: '01-04-1990',
-      time: "10:00 AM",
-      location: {
-        locid: 12,
-        locaddress:'CTG'
-      },
-    desctiption:'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
-    },
-    {
-      id: 456,
-      name: 'third venet',
-      date: '01-04-1990',
-      time: "8:00 AM",
-      location: {
-        locid: 12,
-        locaddress:'Dhaka'
-      },
-      desctiption:'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
-    },
-    {
-      id: 789,
-      name: 'der venet',
-      time: "12:00 PM",
-      date: '01-04-1990',
-      location: {
-        locid: 12,
-        locaddress:'CTG'
-      },
-      desctiption:'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
-    },
-    {
-      id: 996,
-      name: 'happen venet',
-      time: "10:00 AM",
-      date: '01-04-1990',
-      location: {
-        locid: 12,
-        locaddress:'Dhaka'
-      },
-      desctiption:'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
-    },
-    {
-      id: 741,
-      name: 'Last venet',
-      time: "8:00 AM",
-      date: '01-04-1990',
-      desctiption:'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
-    }
-  
-  ]
+export class EventsListComponent implements OnInit {
+  events: any[];
+
+  constructor(private eventservice: EventService) {
+   }
+  ngOnInit(): void {
+    this.events =  this.eventservice.getEventData();
+  }
   handleEventClick(data) {
     console.log(data);
   }
