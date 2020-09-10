@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { EventsAppComponent } from './events-app.component';
 import { EventsListComponent } from './events/events-list.component';
 import { EventsThumnailComponent } from './events/events-thumbnail.component';
+import { EventsDetailsComponent } from './events/events-details.component';
 import { NavbarComponent } from './nav/navbar.component';
 import { EventService } from './shared/event.service';
 import { ToastrService } from './common/toaste.service';
@@ -13,7 +14,8 @@ import { ToastrService } from './common/toaste.service';
     EventsAppComponent,
     EventsListComponent,
     EventsThumnailComponent,
-    NavbarComponent
+    NavbarComponent,
+    EventsDetailsComponent
   ],
   imports: [
     BrowserModule

@@ -6,6 +6,9 @@ export class EventService {
         return EVENTS;
     }
 
+  getEventDataById(id:number){
+    return EVENTS.find(event => event.id === id);
+  }
    
 }
 const EVENTS = [
