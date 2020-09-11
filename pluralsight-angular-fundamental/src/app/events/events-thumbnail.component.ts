@@ -2,7 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'event-thumbnail',
-    template: `<div class="card" style="width: 18rem;">
+    template: `<div class="card" style="width: 18rem;" [routerLink]="['/events',event.id]" routerLinkActive="router-link-active" >
   <div class="card">
     <div class="card-header">
         Featured

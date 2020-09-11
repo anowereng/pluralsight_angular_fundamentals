@@ -1,6 +1,6 @@
 <div class="card-body">
   <h5 class="card-title">id: {{event?.id}}</h5>
-  <p class="card-text">date : {{event.date}} </p>
+  <p class="card-text">date : {{event?.date}} </p>
 
     <div [ngSwitch]="event?.time" [class.green]="event?.time==='8:00 AM'"
     [ngStyle]="{'color':event?.time==='8:00 AM'? '#003300':'#bbb',
