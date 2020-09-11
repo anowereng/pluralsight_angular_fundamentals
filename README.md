@@ -11,3 +11,5 @@ Obserable
   1. Async or Sync
   2. Return Stream Value 
       ex 1, 2, 3, 4  
+Async
+  - async always return Promise 
