@@ -1,3 +1,4 @@
+import { HomeComponent } from './home/home.component';
 import { Error404Component } from './errors/404.component';
 import { EventsNewComponent } from './events/event-new.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -22,7 +23,8 @@ import { apprRoutes } from './routes'
     NavbarComponent,
     EventsDetailsComponent,
     EventsNewComponent,
-    Error404Component
+    Error404Component,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
