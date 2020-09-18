@@ -1,20 +1,25 @@
+import { LoginComponent } from './user/login/login.component';
+import { UserComponent } from './user/user.component';
 import { HomeComponent } from './home/home.component';
-import { Error404Component } from './errors/404.component';
-import { EventsNewComponent } from './events/event-new.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { EventsAppComponent } from './events-app.component';
-import { EventsListComponent } from './events/events-list.component';
-import { EventsThumnailComponent } from './events/events-thumbnail.component';
-import { EventsDetailsComponent } from './events/events-details.component';
 import { NavbarComponent } from './nav/navbar.component';
 import { EventService } from './shared/event.service';
 import { EventRouteActivator } from './shared/event-route-activator.component';
 import { ToastrService } from './common/toaste.service';
 import {RouterModule} from '@angular/router'
 import { apprRoutes } from './routes'
-
+import {AuthService} from './user/auth.service'
+import {
+  EventsListComponent,
+  EventsThumnailComponent,
+  EventsDetailsComponent,
+  EventsNewComponent,
+} from './events/index'
+import { Error404Component } from './errors/404.component';
+import{FormsModule} from '@angular/forms'
 @NgModule({
   declarations: [
     EventsAppComponent,
@@ -24,13 +29,16 @@ import { apprRoutes } from './routes'
     EventsDetailsComponent,
     EventsNewComponent,
     Error404Component,
-    HomeComponent
+    HomeComponent,
+    UserComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(apprRoutes)
   ],
-  providers: [EventService, ToastrService, EventRouteActivator],
+  providers: [EventService, ToastrService, EventRouteActivator, AuthService],
   bootstrap: [EventsAppComponent]
 })
 export class AppModule { }
